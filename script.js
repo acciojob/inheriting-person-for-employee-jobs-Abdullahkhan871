@@ -1,27 +1,25 @@
-// complete this js code
-function Person(name, age) {
-  this.name = name;
-  this.age = age;
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
 
-  this.greet = () => {
-    console.log(`Hello, my name is ${name}, I am ${age} years old.`);
-  };
+  greet() {
+    console.log(`Hello, my name is ${this.name}, I am ${this.age} years old.`);
+  }
 }
 
-function Employee(name, age, jobTitle) {
-  Person.call(this, name, age);
-  this.jobTitle = jobTitle;
+class Employee extends Person {
+  constructor(name, age, jobTitle) {
+    super(name, age);
+    this.jobTitle = jobTitle;
+  }
 
-  this.jobGreet = () => {
+  jobGreet() {
     console.log(
-      `Hello, my name is ${name}, I am ${age} years old, and my job title is ${jobTitle}.`
+      `Hello, my name is ${this.name}, I am ${this.age} years old, and my job title is ${this.jobTitle}.`
     );
-  };
+  }
 }
-
-SportsCar.prototype = Object.create(Car.prototype);
-SportsCar.prototype.constructor = SportsCar;
-
-// Do not change code below this line
 window.Person = Person;
 window.Employee = Employee;
